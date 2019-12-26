@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/OLS.iml" filepath="$PROJECT_DIR$/.idea/OLS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ols_common/ols_common.iml" filepath="$PROJECT_DIR$/ols_common/ols_common.iml" />
       <module fileurl="file://$PROJECT_DIR$/ols_main/ols_main.iml" filepath="$PROJECT_DIR$/ols_main/ols_main.iml" />
     </modules>
   </component>

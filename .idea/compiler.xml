@@ -7,14 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ols_main" />
+        <module name="ols_common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ols_common" target="1.8" />
       <module name="ols_main" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ols_common" options="-parameters" />
       <module name="ols_main" options="-parameters" />
     </option>
   </component>
