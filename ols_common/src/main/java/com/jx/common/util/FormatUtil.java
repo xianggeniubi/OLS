@@ -1,4 +1,4 @@
-package com.jx.common;
+package com.jx.common.util;
 
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.annotation.JsonInclude;
