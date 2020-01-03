@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan = "true" scanPeriod = "10 seconds">
+    <property name="LOG_PATH" value="./log"/>
+    <property name="OLS_Name" value="ols"/>
+    <contextName>${OLS_Name}</contextName>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %contextName [%X{traceId}-%X{X-B3-TraceId}] [%thread] %-5level %logger{36} -%msg%n</pattern>
+        </encoder>
+    </appender>
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_PATH}/%d{yyyy-MM-dd}/${APP_NAME}.%d{yyyy-MM-dd}.log}</FileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %contextName [%X{traceId}-%X{X-B3-TraceId}] [%thread] %-5level %logger{36} -%msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="FILE"/>
+        <queueSize>512</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+    </appender>
+    <logger name="**" level="info">
+        <appender-ref ref="ASYNC"/>
+    </logger>
+
+    <appender name="VISIT_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_PATH}/%d{yyyy-MM-dd}/${APP_NAME}.%d{yyyy-MM-dd}.visit.log}</FileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %contextName [%X{traceId}-%X{X-B3-TraceId}] [%thread] %-5level %logger{36} -%msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="VISIT_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="VISIT_LOG"/>
+        <queueSize>512</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+    </appender>
+    <logger name="**" level="info">
+        <appender-ref ref="VISIT_ASYNC"/>
+    </logger>
+</configuration>
