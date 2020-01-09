@@ -1,4 +1,4 @@
-package com.jx.common.util.data;
+package com.jx.util.data;
 
 import java.io.Serializable;
 

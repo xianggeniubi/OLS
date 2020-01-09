@@ -26,7 +26,7 @@
         <queueSize>512</queueSize>
         <discardingThreshold>0</discardingThreshold>
     </appender>
-    <logger name="**" level="info">
+    <logger name="com.jx" level="info">
         <appender-ref ref="ASYNC"/>
     </logger>
 

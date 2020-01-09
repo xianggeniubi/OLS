@@ -1,12 +1,10 @@
-package com.jx.common.util;
+package com.jx.util;
 
-import com.jx.common.util.data.ResultHead;
+import com.jx.util.data.ResultHead;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -58,6 +56,12 @@ public class RestUtil {
         if (body != null) {
             resultMap.put("body", body);
         }
+        return resultMap;
+    }
+
+    public static Map<String, Object> fail(String reFlag, String retMsg) {
+        Map<String, Object> resultMap =new HashMap<>();
+        resultMap.put("head", new ResultHead(reFlag, retMsg));
         return resultMap;
     }
 

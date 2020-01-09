@@ -1,4 +1,4 @@
-package com.jx.common.util;
+package com.jx.util;
 
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -56,9 +56,6 @@ public class FormatUtil {
         } catch (JsonProcessingException e) {
             logger.error(FAIL_PARSE_DATA + jsonString);
             logger.debug(ERROR, e);
-        } catch (IOException e) {
-            logger.error(FAIL_READ_WRITE_DATA + jsonString);
-            logger.debug(ERROR, e);
         }
         return list;
     }
@@ -72,9 +69,6 @@ public class FormatUtil {
             list = jsonMapper.readValue(jsonString, List.class);
         } catch (JsonProcessingException e) {
             logger.error(FAIL_PARSE_DATA + jsonString);
-            logger.debug(ERROR, e);
-        } catch (IOException e) {
-            logger.error(FAIL_READ_WRITE_DATA + jsonString);
             logger.debug(ERROR, e);
         }
         return list;
@@ -92,9 +86,6 @@ public class FormatUtil {
             logger.debug(ERROR, e);
         } catch (JsonProcessingException e) {
             logger.error("fail to mapping json data" + jsonString);
-            logger.error(ERROR, e);
-        } catch (IOException e) {
-            logger.error(FAIL_READ_WRITE_DATA + jsonString);
             logger.error(ERROR, e);
         }
         return result;

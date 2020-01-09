@@ -1,6 +1,6 @@
 package com.jx.ols_main.service;
 
-import com.jx.common.util.FormatUtil;
+import com.jx.util.FormatUtil;
 
 public class TsetService {
     public static void main(String[] args) {

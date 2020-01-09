@@ -1,6 +1,6 @@
-package com.jx.common.util;
+package com.jx.util;
 
-import com.jx.common.util.data.ResultHead;
+import com.jx.util.data.ResultHead;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.json.JSONArray;
